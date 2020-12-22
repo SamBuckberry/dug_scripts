@@ -1,0 +1,40 @@
+2020-12-15 12:29:37 +0800 pnod1-13-35: PROLOG TMPDIR=/tmp/.tmpdir.41733225 (linked to /p9/000scratch/slurm_tmpdir/20201215_job_41733225.Gje9)
+2020-12-15 12:29:37 +0800 pnod1-13-35: PROLOG TMPDIR_SHM=/tmp/.tmpdir_shm.41733225 (linked to /dev/shm/slurm_tmpdir/20201215_job_41733225.fytq)
+2020-12-15T12:29:37+0800: == JOB START  NAME=map_pe_dug_pt3 QUEUE=hg19ips HOST=pnod1-13-35 DATE=Tue Dec 15 12:29:37 AWST 2020 JOBID=41733225 ARRAY_JOBID=41733224 TASK=1 DEPENDENCIES=afterany:41733217:41733222 ==
+2020-12-15T12:29:38+0800: export RJS_TASK=1 depTasks=1 readR1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_25k_head_R1.fastq.gz readR2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_25k_head_R2.fastq.gz
+2020-12-15T12:29:38+0800: Use bs-seeker2 via the conda environment: 
+2020-12-15T12:29:38+0800: conda deactivate && conda activate /p9/mcc_hg19ips/sw/bs-seeker2/bs-seeker2-2.1.7/bs-seeker2.env
+2020-12-15T12:29:40+0800: #V cores: 272
+2020-12-15T12:29:40+0800: #V readR1: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_25k_head_R1.fastq.gz
+2020-12-15T12:29:40+0800: #V readR2: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_25k_head_R2.fastq.gz
+2020-12-15T12:29:40+0800: #V pathJob: /p9/mcc_hg19ips/data/map_pe/working/test_25k_head_R1
+2020-12-15T12:29:40+0800: #V baseR1: test_25k_head_R1
+2020-12-15T12:29:40+0800: ==== Merge all bam files ===
+2020-12-15T12:29:40+0800: 
+2020-12-15T12:29:40+0800: sambamba 0.7.1
+2020-12-15T12:29:40+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-15T12:29:40+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-15T12:29:40+0800: 
+2020-12-15T12:29:47+0800: ==== Create md5 sum for output bam file ====
+2020-12-15T12:29:47+0800: ==== Clean up the temp files ====
+2020-12-15T12:29:48+0800: === Moving results to: /p9/mcc_hg19ips/data/map_pe/test_25k_head_R1
+2020-12-15T12:29:48+0800: 000scratch
+2020-12-15T12:29:48+0800: test_25k_head_R1.bam
+2020-12-15T12:29:48+0800: test_25k_head_R1.bam.bai
+2020-12-15T12:29:48+0800: test_25k_head_R1.bam.md5
+2020-12-15T12:29:48+0800: test_25k_head_R1_fastp_report.html
+2020-12-15T12:29:48+0800: test_25k_head_R1_fastp_report.json
+2020-12-15T12:29:48+0800: test_25k_head_R1_merged_pairs_bs_seeker2.log
+2020-12-15T12:29:48+0800: test_25k_head_R1_merged_reads.bam
+2020-12-15T12:29:48+0800: test_25k_head_R1_merged_reads.bam.bai
+2020-12-15T12:29:48+0800: test_25k_head_R1_merged_report.html
+2020-12-15T12:29:48+0800: test_25k_head_R1_merged_report.json
+2020-12-15T12:29:48+0800: test_25k_head_R1_pairs.bam
+2020-12-15T12:29:48+0800: test_25k_head_R1_pairs.bam.bai
+2020-12-15T12:29:48+0800: test_25k_head_R1_pairs_bs_seeker2.log
+2020-12-15T12:29:48+0800: test_25k_head_R1_unmerged_report.html
+2020-12-15T12:29:48+0800: test_25k_head_R1_unmerged_report.json
+2020-12-15T12:29:48+0800: ==== part 3 completed ====
+2020-12-15T12:29:48+0800: == JOB END  STATUS=0 HOST=pnod1-13-35 DATE=Tue Dec 15 12:29:48 AWST 2020 RUNTIME=12 ==
+2020-12-15 12:29:48 +0800: EPILOG deleting /p9/000scratch/slurm_tmpdir/20201215_job_41733225.Gje9
+2020-12-15 12:29:48 +0800: EPILOG deleting /dev/shm/slurm_tmpdir/20201215_job_41733225.fytq

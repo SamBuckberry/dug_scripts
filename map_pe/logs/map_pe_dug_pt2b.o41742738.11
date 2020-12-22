@@ -1,0 +1,683 @@
+2020-12-16 07:12:00 +0800 pnod3318: PROLOG TMPDIR=/tmp/.tmpdir.41742749 (linked to /p9/000scratch/slurm_tmpdir/20201216_job_41742749.WRt4)
+2020-12-16 07:12:00 +0800 pnod3318: PROLOG TMPDIR_SHM=/tmp/.tmpdir_shm.41742749 (linked to /dev/shm/slurm_tmpdir/20201216_job_41742749.9wUT)
+2020-12-16T07:12:00+0800: == JOB START  NAME=map_pe_dug_pt2b QUEUE=hg19ips HOST=pnod3318 DATE=Wed Dec 16 07:12:00 AWST 2020 JOBID=41742749 ARRAY_JOBID=41742738 TASK=11 DEPENDENCIES=afterany:41742678 ==
+2020-12-16T07:12:00+0800: export RJS_TASK=11 depTasks=11 readR1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001.fastq.gz readR2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R2_001.fastq.gz
+2020-12-16T07:12:01+0800: Use bs-seeker2 via the conda environment: 
+2020-12-16T07:12:01+0800: conda deactivate && conda activate /p9/mcc_hg19ips/sw/bs-seeker2/bs-seeker2-2.1.7/bs-seeker2.env
+2020-12-16T07:12:04+0800: #V cores: 272
+2020-12-16T07:12:04+0800: #V files: 10
+2020-12-16T07:12:04+0800: #V bt_cores: 12
+2020-12-16T07:12:04+0800: #V readR1: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001.fastq.gz
+2020-12-16T07:12:04+0800: #V readR2: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R2_001.fastq.gz
+2020-12-16T07:12:04+0800: #V baseR1: RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001
+2020-12-16T07:12:04+0800: #V indexBS: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/
+2020-12-16T07:12:04+0800: #V genome: hg19_L_PhiX.fa
+2020-12-16T07:12:04+0800: #V pathJob: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001
+2020-12-16T07:12:04+0800: ==== File split pairs and generate reports ====
+2020-12-16T07:15:42+0800: Read1 before filtering:
+2020-12-16T07:15:42+0800: total reads: 15651651
+2020-12-16T07:15:42+0800: total bases: 2542013263
+2020-12-16T07:15:42+0800: Q20 bases: 2518520266(99.0758%)
+2020-12-16T07:15:42+0800: Q30 bases: 2454599254(96.5612%)
+2020-12-16T07:15:42+0800: 
+2020-12-16T07:15:42+0800: Read1 after filtering:
+2020-12-16T07:15:42+0800: total reads: 15651480
+2020-12-16T07:15:42+0800: total bases: 2541970597
+2020-12-16T07:15:42+0800: Q20 bases: 2518481316(99.0759%)
+2020-12-16T07:15:42+0800: Q30 bases: 2454562612(96.5614%)
+2020-12-16T07:15:42+0800: 
+2020-12-16T07:15:42+0800: Filtering result:
+2020-12-16T07:15:42+0800: reads passed filter: 15651480
+2020-12-16T07:15:42+0800: reads failed due to low quality: 12
+2020-12-16T07:15:42+0800: reads failed due to too many N: 159
+2020-12-16T07:15:42+0800: reads failed due to too short: 0
+2020-12-16T07:15:42+0800: 
+2020-12-16T07:15:42+0800: Duplication rate (may be overestimated since this is SE data): 9.50773%
+2020-12-16T07:15:43+0800: 
+2020-12-16T07:15:43+0800: JSON report: RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_report.json
+2020-12-16T07:15:43+0800: HTML report: RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_report.html
+2020-12-16T07:15:43+0800: 
+2020-12-16T07:15:43+0800: fastp -A --split=10 --split_prefix_digits=4 --thread=10 --in1=RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged.fastq --out1=RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq --json RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_report.json --html RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_report.html 
+2020-12-16T07:15:43+0800: fastp v0.20.0, time used: 218 seconds
+2020-12-16T07:15:46+0800: ====== Map the merged pairs ======
+2020-12-16T07:15:46+0800: ==== Setup the trimmed file manifest for mapping ====
+2020-12-16T07:15:46+0800: ==== Paired-end alignment ====
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Read filename: 0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:09:34+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-2050946 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/W_C2T_m4.mapping.tmp-2050946
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-2050946 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/C_C2T_m4.mapping.tmp-2050946
+2020-12-16T09:09:34+0800: [2020-12-16 08:21:44] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-2050946 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/W_C2T_m4.mapping.tmp-2050946
+2020-12-16T09:09:34+0800: [2020-12-16 08:21:44] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-2050946 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/C_C2T_m4.mapping.tmp-2050946
+2020-12-16T09:09:34+0800: [2020-12-16 08:38:16] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:09:34+0800: [2020-12-16 08:38:27] Start reading and trimming the input sequences
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Start mapping
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Starting commands:
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-4047077 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/W_C2T_m4.mapping.tmp-4047077
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-4047077 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/C_C2T_m4.mapping.tmp-4047077
+2020-12-16T09:09:34+0800: [2020-12-16 09:00:41] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-4047077 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/W_C2T_m4.mapping.tmp-4047077
+2020-12-16T09:09:34+0800: [2020-12-16 09:00:41] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/Trimmed_C2T.fa.tmp-4047077 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/C_C2T_m4.mapping.tmp-4047077
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:30] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-DBkdyk/0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of raw reads: 1354983
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of bases in total: 220167763 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of reads are rejected because of multiple hits: 6545
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of unique-hits reads (before post-filtering): 1243373
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    622654 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    620719 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Post-filtering 1198270 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    599791 FW reads mapped to Watson strand
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    598479 FW reads mapped to Crick strand
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Mappability = 88.4343%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Total bases of uniquely mapped reads : 194769772
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Methylated C in mapped reads 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCG  79.580%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCHG 2.006%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCHH 1.217%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] File : 0002.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:34+0800: [Resource / CPU time] Last: 1:53:40.004005 	Total: 1:53:40.006483
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ------------------- END --------------------
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Read filename: 0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:34+0800: 
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:09:34+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:09:34+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-5554853 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/W_C2T_m4.mapping.tmp-5554853
+2020-12-16T09:09:34+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-5554853 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/C_C2T_m4.mapping.tmp-5554853
+2020-12-16T09:09:34+0800: [2020-12-16 08:21:26] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-5554853 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/W_C2T_m4.mapping.tmp-5554853
+2020-12-16T09:09:34+0800: [2020-12-16 08:21:40] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-5554853 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/C_C2T_m4.mapping.tmp-5554853
+2020-12-16T09:09:34+0800: [2020-12-16 08:38:16] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:09:34+0800: [2020-12-16 08:38:27] Start reading and trimming the input sequences
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Start mapping
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Starting commands:
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-4863053 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/W_C2T_m4.mapping.tmp-4863053
+2020-12-16T09:09:34+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-4863053 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/C_C2T_m4.mapping.tmp-4863053
+2020-12-16T09:09:34+0800: [2020-12-16 09:00:39] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-4863053 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/W_C2T_m4.mapping.tmp-4863053
+2020-12-16T09:09:34+0800: [2020-12-16 09:00:39] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/Trimmed_C2T.fa.tmp-4863053 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/C_C2T_m4.mapping.tmp-4863053
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-utzBWX/0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of raw reads: 1356988
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of bases in total: 220428978 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of reads are rejected because of multiple hits: 6605
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Number of unique-hits reads (before post-filtering): 1245640
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    623489 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    622151 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Post-filtering 1200401 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    600505 FW reads mapped to Watson strand
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]    599896 FW reads mapped to Crick strand
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Mappability = 88.4607%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Total bases of uniquely mapped reads : 195046616
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] Methylated C in mapped reads 
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCG  79.530%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCHG 2.006%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31]  mCHH 1.223%
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ----------------------------------------------
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] File : 0004.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:34+0800: [Resource / CPU time] Last: 1:53:40.570335 	Total: 1:53:40.570535
+2020-12-16T09:09:34+0800: [2020-12-16 09:09:31] ------------------- END --------------------
+2020-12-16T09:09:43+0800: 
+2020-12-16T09:09:43+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:09:43+0800: 
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Read filename: 0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:43+0800: 
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:09:43+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:09:43+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:09:43+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:09:43+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:09:43+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-2154932 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/W_C2T_m4.mapping.tmp-2154932
+2020-12-16T09:09:43+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-2154932 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/C_C2T_m4.mapping.tmp-2154932
+2020-12-16T09:09:43+0800: [2020-12-16 08:21:30] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-2154932 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/W_C2T_m4.mapping.tmp-2154932
+2020-12-16T09:09:43+0800: [2020-12-16 08:21:43] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-2154932 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/C_C2T_m4.mapping.tmp-2154932
+2020-12-16T09:09:43+0800: [2020-12-16 08:38:16] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:09:43+0800: [2020-12-16 08:38:27] Start reading and trimming the input sequences
+2020-12-16T09:09:43+0800: [2020-12-16 08:39:01] Start mapping
+2020-12-16T09:09:43+0800: [2020-12-16 08:39:01] Starting commands:
+2020-12-16T09:09:43+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-1064520 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/W_C2T_m4.mapping.tmp-1064520
+2020-12-16T09:09:43+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-1064520 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/C_C2T_m4.mapping.tmp-1064520
+2020-12-16T09:09:43+0800: [2020-12-16 09:00:34] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-1064520 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/W_C2T_m4.mapping.tmp-1064520
+2020-12-16T09:09:43+0800: [2020-12-16 09:00:38] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/Trimmed_C2T.fa.tmp-1064520 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/C_C2T_m4.mapping.tmp-1064520
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-NUY0ti/0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] ----------------------------------------------
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Number of raw reads: 1355986
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Number of bases in total: 220258998 
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Number of reads are rejected because of multiple hits: 6412
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Number of unique-hits reads (before post-filtering): 1244448
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]    621952 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]    622496 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Post-filtering 1199199 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]    598742 FW reads mapped to Watson strand
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]    600457 FW reads mapped to Crick strand
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Mappability = 88.4374%
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Total bases of uniquely mapped reads : 194858323
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] ----------------------------------------------
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] Methylated C in mapped reads 
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]  mCG  79.407%
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]  mCHG 2.009%
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40]  mCHH 1.224%
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] ----------------------------------------------
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] File : 0010.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:43+0800: [Resource / CPU time] Last: 1:53:49.122412 	Total: 1:53:49.122587
+2020-12-16T09:09:43+0800: [2020-12-16 09:09:40] ------------------- END --------------------
+2020-12-16T09:09:47+0800: 
+2020-12-16T09:09:47+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:09:47+0800: 
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Read filename: 0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:47+0800: 
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:09:47+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:09:47+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:09:47+0800: [2020-12-16 07:18:01] Start mapping
+2020-12-16T09:09:47+0800: [2020-12-16 07:18:01] Starting commands:
+2020-12-16T09:09:47+0800: [2020-12-16 07:18:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7816832 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/W_C2T_m4.mapping.tmp-7816832
+2020-12-16T09:09:47+0800: [2020-12-16 07:18:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7816832 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/C_C2T_m4.mapping.tmp-7816832
+2020-12-16T09:09:47+0800: [2020-12-16 08:21:40] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7816832 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/W_C2T_m4.mapping.tmp-7816832
+2020-12-16T09:09:47+0800: [2020-12-16 08:21:40] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7816832 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/C_C2T_m4.mapping.tmp-7816832
+2020-12-16T09:09:47+0800: [2020-12-16 08:38:16] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:09:47+0800: [2020-12-16 08:38:27] Start reading and trimming the input sequences
+2020-12-16T09:09:47+0800: [2020-12-16 08:39:01] Start mapping
+2020-12-16T09:09:47+0800: [2020-12-16 08:39:01] Starting commands:
+2020-12-16T09:09:47+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7506578 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/W_C2T_m4.mapping.tmp-7506578
+2020-12-16T09:09:47+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7506578 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/C_C2T_m4.mapping.tmp-7506578
+2020-12-16T09:09:47+0800: [2020-12-16 09:01:12] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7506578 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/W_C2T_m4.mapping.tmp-7506578
+2020-12-16T09:09:47+0800: [2020-12-16 09:01:12] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/Trimmed_C2T.fa.tmp-7506578 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/C_C2T_m4.mapping.tmp-7506578
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-XmgetN/0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] ----------------------------------------------
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Number of raw reads: 1365984
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Number of bases in total: 221910876 
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Number of reads are rejected because of multiple hits: 6947
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Number of unique-hits reads (before post-filtering): 1252831
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]    626709 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]    626122 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Post-filtering 1207171 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]    603564 FW reads mapped to Watson strand
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]    603607 FW reads mapped to Crick strand
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Mappability = 88.3737%
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Total bases of uniquely mapped reads : 196164827
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] ----------------------------------------------
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] Methylated C in mapped reads 
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]  mCG  79.373%
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]  mCHG 2.005%
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44]  mCHH 1.222%
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] ----------------------------------------------
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] File : 0009.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:47+0800: [Resource / CPU time] Last: 1:53:53.252032 	Total: 1:53:53.252213
+2020-12-16T09:09:47+0800: [2020-12-16 09:09:44] ------------------- END --------------------
+2020-12-16T09:09:51+0800: 
+2020-12-16T09:09:51+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:09:51+0800: 
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Read filename: 0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:09:51+0800: 
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:09:51+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:09:51+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:09:51+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:09:51+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:09:51+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-4715240 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/W_C2T_m4.mapping.tmp-4715240
+2020-12-16T09:09:51+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-4715240 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/C_C2T_m4.mapping.tmp-4715240
+2020-12-16T09:09:51+0800: [2020-12-16 08:21:39] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-4715240 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/W_C2T_m4.mapping.tmp-4715240
+2020-12-16T09:09:51+0800: [2020-12-16 08:21:43] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-4715240 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/C_C2T_m4.mapping.tmp-4715240
+2020-12-16T09:09:51+0800: [2020-12-16 08:38:17] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:09:51+0800: [2020-12-16 08:38:27] Start reading and trimming the input sequences
+2020-12-16T09:09:51+0800: [2020-12-16 08:39:01] Start mapping
+2020-12-16T09:09:51+0800: [2020-12-16 08:39:01] Starting commands:
+2020-12-16T09:09:51+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-6628711 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/W_C2T_m4.mapping.tmp-6628711
+2020-12-16T09:09:51+0800: [2020-12-16 08:39:01] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-6628711 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/C_C2T_m4.mapping.tmp-6628711
+2020-12-16T09:09:51+0800: [2020-12-16 09:01:18] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-6628711 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/W_C2T_m4.mapping.tmp-6628711
+2020-12-16T09:09:51+0800: [2020-12-16 09:01:18] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/Trimmed_C2T.fa.tmp-6628711 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/C_C2T_m4.mapping.tmp-6628711
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-vC8HOp/0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] ----------------------------------------------
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Number of raw reads: 1369984
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Number of bases in total: 222467578 
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Number of reads are rejected because of multiple hits: 6721
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Number of unique-hits reads (before post-filtering): 1258155
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]    628899 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]    629256 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Post-filtering 1212584 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]    605550 FW reads mapped to Watson strand
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]    607034 FW reads mapped to Crick strand
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Mappability = 88.5108%
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Total bases of uniquely mapped reads : 196969750
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] ----------------------------------------------
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] Methylated C in mapped reads 
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]  mCG  79.502%
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]  mCHG 2.007%
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47]  mCHH 1.220%
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] ----------------------------------------------
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] File : 0008.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:09:51+0800: [Resource / CPU time] Last: 1:53:56.761119 	Total: 1:53:56.761297
+2020-12-16T09:09:51+0800: [2020-12-16 09:09:47] ------------------- END --------------------
+2020-12-16T09:10:12+0800: 
+2020-12-16T09:10:12+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:10:12+0800: 
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Read filename: 0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:12+0800: 
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:10:12+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:10:12+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:10:12+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:10:12+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:10:12+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-3665477 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/W_C2T_m4.mapping.tmp-3665477
+2020-12-16T09:10:12+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-3665477 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/C_C2T_m4.mapping.tmp-3665477
+2020-12-16T09:10:12+0800: [2020-12-16 08:21:42] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-3665477 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/W_C2T_m4.mapping.tmp-3665477
+2020-12-16T09:10:12+0800: [2020-12-16 08:21:42] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-3665477 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/C_C2T_m4.mapping.tmp-3665477
+2020-12-16T09:10:12+0800: [2020-12-16 08:38:17] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:10:12+0800: [2020-12-16 08:38:28] Start reading and trimming the input sequences
+2020-12-16T09:10:12+0800: [2020-12-16 08:39:02] Start mapping
+2020-12-16T09:10:12+0800: [2020-12-16 08:39:02] Starting commands:
+2020-12-16T09:10:12+0800: [2020-12-16 08:39:02] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-7675467 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/W_C2T_m4.mapping.tmp-7675467
+2020-12-16T09:10:12+0800: [2020-12-16 08:39:02] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-7675467 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/C_C2T_m4.mapping.tmp-7675467
+2020-12-16T09:10:12+0800: [2020-12-16 09:01:30] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-7675467 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/W_C2T_m4.mapping.tmp-7675467
+2020-12-16T09:10:12+0800: [2020-12-16 09:01:32] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/Trimmed_C2T.fa.tmp-7675467 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/C_C2T_m4.mapping.tmp-7675467
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-LuG5Mo/0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] ----------------------------------------------
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Number of raw reads: 1374983
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Number of bases in total: 223366483 
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Number of reads are rejected because of multiple hits: 6871
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Number of unique-hits reads (before post-filtering): 1261435
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]    630495 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]    630940 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Post-filtering 1215662 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]    607232 FW reads mapped to Watson strand
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]    608430 FW reads mapped to Crick strand
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Mappability = 88.4129%
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Total bases of uniquely mapped reads : 197532831
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] ----------------------------------------------
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] Methylated C in mapped reads 
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]  mCG  79.555%
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]  mCHG 2.005%
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08]  mCHH 1.221%
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] ----------------------------------------------
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] File : 0005.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:12+0800: [Resource / CPU time] Last: 1:54:17.566586 	Total: 1:54:17.566787
+2020-12-16T09:10:12+0800: [2020-12-16 09:10:08] ------------------- END --------------------
+2020-12-16T09:10:26+0800: 
+2020-12-16T09:10:26+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:10:26+0800: 
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Read filename: 0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:26+0800: 
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:10:26+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:10:26+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:10:26+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:10:26+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:10:26+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-4060608 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/W_C2T_m4.mapping.tmp-4060608
+2020-12-16T09:10:26+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-4060608 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/C_C2T_m4.mapping.tmp-4060608
+2020-12-16T09:10:26+0800: [2020-12-16 08:21:33] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-4060608 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/W_C2T_m4.mapping.tmp-4060608
+2020-12-16T09:10:26+0800: [2020-12-16 08:21:35] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-4060608 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/C_C2T_m4.mapping.tmp-4060608
+2020-12-16T09:10:26+0800: [2020-12-16 08:38:41] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:10:26+0800: [2020-12-16 08:38:47] Start reading and trimming the input sequences
+2020-12-16T09:10:26+0800: [2020-12-16 08:39:35] Start mapping
+2020-12-16T09:10:26+0800: [2020-12-16 08:39:35] Starting commands:
+2020-12-16T09:10:26+0800: [2020-12-16 08:39:35] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-5106509 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/W_C2T_m4.mapping.tmp-5106509
+2020-12-16T09:10:26+0800: [2020-12-16 08:39:35] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-5106509 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/C_C2T_m4.mapping.tmp-5106509
+2020-12-16T09:10:26+0800: [2020-12-16 09:01:47] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-5106509 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/W_C2T_m4.mapping.tmp-5106509
+2020-12-16T09:10:26+0800: [2020-12-16 09:01:47] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/Trimmed_C2T.fa.tmp-5106509 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/C_C2T_m4.mapping.tmp-5106509
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-JKu4wF/0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] ----------------------------------------------
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Number of raw reads: 1368977
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Number of bases in total: 222398084 
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Number of reads are rejected because of multiple hits: 6870
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Number of unique-hits reads (before post-filtering): 1256670
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]    628118 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]    628552 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Post-filtering 1211430 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]    605226 FW reads mapped to Watson strand
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]    606204 FW reads mapped to Crick strand
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Mappability = 88.4916%
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Total bases of uniquely mapped reads : 196869404
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] ----------------------------------------------
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] Methylated C in mapped reads 
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]  mCG  79.553%
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]  mCHG 2.001%
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23]  mCHH 1.222%
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] ----------------------------------------------
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] File : 0007.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:26+0800: [Resource / CPU time] Last: 1:54:32.334158 	Total: 1:54:32.334339
+2020-12-16T09:10:26+0800: [2020-12-16 09:10:23] ------------------- END --------------------
+2020-12-16T09:10:30+0800: 
+2020-12-16T09:10:30+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:10:30+0800: 
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Read filename: 0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:10:30+0800: 
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:10:30+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:10:30+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:10:30+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:10:30+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:10:30+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-7074142 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/W_C2T_m4.mapping.tmp-7074142
+2020-12-16T09:10:30+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-7074142 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/C_C2T_m4.mapping.tmp-7074142
+2020-12-16T09:10:30+0800: [2020-12-16 08:21:34] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-7074142 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/W_C2T_m4.mapping.tmp-7074142
+2020-12-16T09:10:30+0800: [2020-12-16 08:21:34] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-7074142 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/C_C2T_m4.mapping.tmp-7074142
+2020-12-16T09:10:30+0800: [2020-12-16 08:38:17] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:10:30+0800: [2020-12-16 08:38:28] Start reading and trimming the input sequences
+2020-12-16T09:10:30+0800: [2020-12-16 08:39:02] Start mapping
+2020-12-16T09:10:30+0800: [2020-12-16 08:39:02] Starting commands:
+2020-12-16T09:10:30+0800: [2020-12-16 08:39:02] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-3261630 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/W_C2T_m4.mapping.tmp-3261630
+2020-12-16T09:10:30+0800: [2020-12-16 08:39:02] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-3261630 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/C_C2T_m4.mapping.tmp-3261630
+2020-12-16T09:10:30+0800: [2020-12-16 09:01:45] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-3261630 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/W_C2T_m4.mapping.tmp-3261630
+2020-12-16T09:10:30+0800: [2020-12-16 09:01:45] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/Trimmed_C2T.fa.tmp-3261630 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/C_C2T_m4.mapping.tmp-3261630
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-YqqGI8/0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] ----------------------------------------------
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Number of raw reads: 1382635
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Number of bases in total: 224702492 
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Number of reads are rejected because of multiple hits: 7010
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Number of unique-hits reads (before post-filtering): 1268938
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]    632936 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]    636002 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Post-filtering 1222744 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]    609508 FW reads mapped to Watson strand
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]    613236 FW reads mapped to Crick strand
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Mappability = 88.4358%
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Total bases of uniquely mapped reads : 198785878
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] ----------------------------------------------
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] Methylated C in mapped reads 
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]  mCG  79.497%
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]  mCHG 2.004%
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26]  mCHH 1.222%
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] ----------------------------------------------
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] File : 0003.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:10:30+0800: [Resource / CPU time] Last: 1:54:35.443640 	Total: 1:54:35.443826
+2020-12-16T09:10:30+0800: [2020-12-16 09:10:26] ------------------- END --------------------
+2020-12-16T09:46:12+0800: 
+2020-12-16T09:46:12+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:46:12+0800: 
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Read filename: 0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:46:12+0800: 
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:46:12+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:46:12+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:46:12+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:46:12+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:46:12+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-6551379 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-6551379
+2020-12-16T09:46:12+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-6551379 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-6551379
+2020-12-16T09:46:12+0800: [2020-12-16 08:21:22] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-6551379 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-6551379
+2020-12-16T09:46:12+0800: [2020-12-16 08:21:24] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-6551379 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-6551379
+2020-12-16T09:46:12+0800: [2020-12-16 08:38:19] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:46:12+0800: [2020-12-16 08:38:40] Start reading and trimming the input sequences
+2020-12-16T09:46:12+0800: [2020-12-16 08:41:55] Start mapping
+2020-12-16T09:46:12+0800: [2020-12-16 08:41:55] Starting commands:
+2020-12-16T09:46:12+0800: [2020-12-16 08:41:55] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-9245653 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-9245653
+2020-12-16T09:46:12+0800: [2020-12-16 08:41:55] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-9245653 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-9245653
+2020-12-16T09:46:12+0800: [2020-12-16 09:18:02] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-9245653 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-9245653
+2020-12-16T09:46:12+0800: [2020-12-16 09:18:22] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-9245653 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-9245653
+2020-12-16T09:46:12+0800: [2020-12-16 09:35:43] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:46:12+0800: [2020-12-16 09:35:48] Start reading and trimming the input sequences
+2020-12-16T09:46:12+0800: [2020-12-16 09:36:07] Start mapping
+2020-12-16T09:46:12+0800: [2020-12-16 09:36:07] Starting commands:
+2020-12-16T09:46:12+0800: [2020-12-16 09:36:07] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-4003183 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-4003183
+2020-12-16T09:46:12+0800: [2020-12-16 09:36:07] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-4003183 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-4003183
+2020-12-16T09:46:12+0800: [2020-12-16 09:41:50] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-4003183 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/W_C2T_m4.mapping.tmp-4003183
+2020-12-16T09:46:12+0800: [2020-12-16 09:41:50] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/Trimmed_C2T.fa.tmp-4003183 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/C_C2T_m4.mapping.tmp-4003183
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:09] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-1v28Vf/0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-3 (3) 
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] ----------------------------------------------
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Number of raw reads: 2237981
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Number of bases in total: 363284164 
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Number of reads are rejected because of multiple hits: 4447
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Number of unique-hits reads (before post-filtering): 2056407
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]   1028478 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]   1027929 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Post-filtering 1982637 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]    990846 FW reads mapped to Watson strand
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]    991791 FW reads mapped to Crick strand
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Mappability = 88.5904%
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Total bases of uniquely mapped reads : 321968621
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] ----------------------------------------------
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] Methylated C in mapped reads 
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]  mCG  79.550%
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]  mCHG 1.998%
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10]  mCHH 1.222%
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] ----------------------------------------------
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] File : 0001.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:46:12+0800: [Resource / CPU time] Last: 2:30:18.905908 	Total: 2:30:18.906077
+2020-12-16T09:46:12+0800: [2020-12-16 09:46:10] ------------------- END --------------------
+2020-12-16T09:56:29+0800: 
+2020-12-16T09:56:29+0800:      BS-Seeker2 v2.1.7 - Oct. 23, 2018
+2020-12-16T09:56:29+0800: 
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Mode: Bowtie2, end-to-end alignment
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Filter for tag XS: #(mCH)/#(all CH)>50.00% and #(mCH)>5
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Temporary directory: /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Reduced Representation Bisulfite Sequencing: False
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Single end
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Aligner command: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] ----------------------------------------------
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Read filename: 0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] The first base (for mapping): 1
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] The  last base (for mapping): 400
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Path for short reads aligner: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x %(reference_genome)s -f -U %(input_file)s -S %(output_file)s
+2020-12-16T09:56:29+0800: 
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Reference genome library path: /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Directional library
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] Number of mismatches allowed: 4
+2020-12-16T09:56:29+0800: [2020-12-16 07:15:51] -------------------------------- 
+2020-12-16T09:56:29+0800: [2020-12-16 07:16:29] Start reading and trimming the input sequences
+2020-12-16T09:56:29+0800: [2020-12-16 07:18:00] Start mapping
+2020-12-16T09:56:29+0800: [2020-12-16 07:18:00] Starting commands:
+2020-12-16T09:56:29+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7566438 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-7566438
+2020-12-16T09:56:29+0800: [2020-12-16 07:18:00] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7566438 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-7566438
+2020-12-16T09:56:29+0800: [2020-12-16 08:21:26] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7566438 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-7566438
+2020-12-16T09:56:29+0800: [2020-12-16 08:21:34] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7566438 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-7566438
+2020-12-16T09:56:29+0800: [2020-12-16 08:38:39] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-1 (1) 
+2020-12-16T09:56:29+0800: [2020-12-16 08:38:53] Start reading and trimming the input sequences
+2020-12-16T09:56:29+0800: [2020-12-16 08:42:47] Start mapping
+2020-12-16T09:56:29+0800: [2020-12-16 08:42:47] Starting commands:
+2020-12-16T09:56:29+0800: [2020-12-16 08:42:47] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7457420 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-7457420
+2020-12-16T09:56:29+0800: [2020-12-16 08:42:47] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7457420 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-7457420
+2020-12-16T09:56:29+0800: [2020-12-16 09:18:35] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7457420 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-7457420
+2020-12-16T09:56:29+0800: [2020-12-16 09:18:44] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-7457420 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-7457420
+2020-12-16T09:56:29+0800: [2020-12-16 09:35:58] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-2 (2) 
+2020-12-16T09:56:29+0800: [2020-12-16 09:36:05] Start reading and trimming the input sequences
+2020-12-16T09:56:29+0800: [2020-12-16 09:36:45] Start mapping
+2020-12-16T09:56:29+0800: [2020-12-16 09:36:45] Starting commands:
+2020-12-16T09:56:29+0800: [2020-12-16 09:36:45] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-8302274 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-8302274
+2020-12-16T09:56:29+0800: [2020-12-16 09:36:45] Launched: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-8302274 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-8302274
+2020-12-16T09:56:29+0800: [2020-12-16 09:47:59] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/W_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-8302274 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/W_C2T_m4.mapping.tmp-8302274
+2020-12-16T09:56:29+0800: [2020-12-16 09:47:59] Finished: /p9/mcc_hg19ips/sw/bowtie2/bowtie2-2.4.2/bin/bowtie2 --quiet --end-to-end -D 50 --norc -L 15 --sam-nohead -p 12 --score-min L,-0.6,-0.6  -k 2 -x /p9/mcc_hg19ips/data/indexes/hg19_bsseeker_bt2_index/hg19_L_PhiX.fa_bowtie2/C_C2T -f -U /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/Trimmed_C2T.fa.tmp-8302274 -S /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/C_C2T_m4.mapping.tmp-8302274
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] --> /p9/mcc_hg19ips/data/map_pe/working/RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001/000scratch/41742749/bs_seeker2_0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.bam_-bowtie2-e2e-TMP-54Wz51/0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq-s-3 (3) 
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] ----------------------------------------------
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Number of raw reads: 2482979
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Number of bases in total: 402985181 
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Number of reads are rejected because of multiple hits: 9048
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Number of unique-hits reads (before post-filtering): 2281241
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]   1139678 FW reads mapped to Watson strand (before post-filtering)
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]   1141563 FW reads mapped to Crick strand (before post-filtering)
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Post-filtering 2199518 uniquely aligned reads with mismatches <= 4
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]   1097996 FW reads mapped to Watson strand
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]   1101522 FW reads mapped to Crick strand
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Mappability = 88.5838%
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Total bases of uniquely mapped reads : 357142322
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] ----------------------------------------------
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] Methylated C in mapped reads 
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]  mCG  79.613%
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]  mCHG 2.005%
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25]  mCHH 1.224%
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] ----------------------------------------------
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] File : 0006.RL2348_2020_12_14_G6_p31_38F_d13_TNT_MethylC_S6_L001_R1_001_merged_split.fastq
+2020-12-16T09:56:29+0800: [Resource / CPU time] Last: 2:40:34.270368 	Total: 2:40:34.270525
+2020-12-16T09:56:29+0800: [2020-12-16 09:56:25] ------------------- END --------------------
+2020-12-16T09:56:29+0800: ====  Create a merged log file ====
+2020-12-16T09:56:29+0800: ==== Sort the output bam files ====
+2020-12-16T09:56:30+0800: 
+2020-12-16T09:56:30+0800: sambamba 0.7.1
+2020-12-16T09:56:30+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:56:30+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:56:30+0800: 
+2020-12-16T09:56:55+0800: 
+2020-12-16T09:56:55+0800: sambamba 0.7.1
+2020-12-16T09:56:55+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:56:55+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:56:55+0800: 
+2020-12-16T09:57:09+0800: 
+2020-12-16T09:57:09+0800: sambamba 0.7.1
+2020-12-16T09:57:09+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:57:09+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:57:09+0800: 
+2020-12-16T09:57:23+0800: 
+2020-12-16T09:57:23+0800: sambamba 0.7.1
+2020-12-16T09:57:23+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:57:23+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:57:23+0800: 
+2020-12-16T09:57:36+0800: 
+2020-12-16T09:57:36+0800: sambamba 0.7.1
+2020-12-16T09:57:36+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:57:36+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:57:36+0800: 
+2020-12-16T09:57:50+0800: 
+2020-12-16T09:57:50+0800: sambamba 0.7.1
+2020-12-16T09:57:50+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:57:50+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:57:50+0800: 
+2020-12-16T09:58:17+0800: 
+2020-12-16T09:58:17+0800: sambamba 0.7.1
+2020-12-16T09:58:17+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:58:17+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:58:17+0800: 
+2020-12-16T09:58:31+0800: 
+2020-12-16T09:58:31+0800: sambamba 0.7.1
+2020-12-16T09:58:31+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:58:31+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:58:31+0800: 
+2020-12-16T09:58:44+0800: 
+2020-12-16T09:58:44+0800: sambamba 0.7.1
+2020-12-16T09:58:44+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:58:44+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:58:44+0800: 
+2020-12-16T09:58:58+0800: 
+2020-12-16T09:58:58+0800: sambamba 0.7.1
+2020-12-16T09:58:58+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:58:58+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:58:58+0800: 
+2020-12-16T09:59:11+0800: ==== Merge the single end map bam files ====
+2020-12-16T09:59:11+0800: 
+2020-12-16T09:59:11+0800: sambamba 0.7.1
+2020-12-16T09:59:11+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T09:59:11+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T09:59:11+0800: 
+2020-12-16T10:00:27+0800: === Clean up scratch ===
+2020-12-16T10:00:27+0800: ==== part 2b merged workflow completed ====
+2020-12-16T10:00:27+0800: == JOB END  STATUS=0 HOST=pnod3318 DATE=Wed Dec 16 10:00:27 AWST 2020 RUNTIME=10108 ==
+2020-12-16 10:00:28 +0800: EPILOG deleting /p9/000scratch/slurm_tmpdir/20201216_job_41742749.WRt4
+2020-12-16 10:00:28 +0800: EPILOG deleting /dev/shm/slurm_tmpdir/20201216_job_41742749.9wUT

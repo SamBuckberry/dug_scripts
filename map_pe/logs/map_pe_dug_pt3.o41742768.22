@@ -1,0 +1,40 @@
+2020-12-16 10:24:07 +0800 pnod3701: PROLOG TMPDIR=/tmp/.tmpdir.41742790 (linked to /localData/000scratch/slurm_tmpdir/20201216_job_41742790.6Aur)
+2020-12-16 10:24:07 +0800 pnod3701: PROLOG TMPDIR_SHM=/tmp/.tmpdir_shm.41742790 (linked to /dev/shm/slurm_tmpdir/20201216_job_41742790.WGIQ)
+2020-12-16T10:24:07+0800: == JOB START  NAME=map_pe_dug_pt3 QUEUE=hg19ips HOST=pnod3701 DATE=Wed Dec 16 10:24:07 AWST 2020 JOBID=41742790 ARRAY_JOBID=41742768 TASK=22 DEPENDENCIES=afterany:41742708:41742738 ==
+2020-12-16T10:24:07+0800: export RJS_TASK=22 depTasks=22 readR1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001.fastq.gz readR2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R2_001.fastq.gz
+2020-12-16T10:24:08+0800: Use bs-seeker2 via the conda environment: 
+2020-12-16T10:24:08+0800: conda deactivate && conda activate /p9/mcc_hg19ips/sw/bs-seeker2/bs-seeker2-2.1.7/bs-seeker2.env
+2020-12-16T10:24:11+0800: #V cores: 272
+2020-12-16T10:24:11+0800: #V readR1: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001.fastq.gz
+2020-12-16T10:24:11+0800: #V readR2: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R2_001.fastq.gz
+2020-12-16T10:24:11+0800: #V pathJob: /p9/mcc_hg19ips/data/map_pe/working/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001
+2020-12-16T10:24:11+0800: #V baseR1: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001
+2020-12-16T10:24:11+0800: ==== Merge all bam files ===
+2020-12-16T10:24:11+0800: 
+2020-12-16T10:24:11+0800: sambamba 0.7.1
+2020-12-16T10:24:11+0800:  by Artem Tarasov and Pjotr Prins (C) 2012-2019
+2020-12-16T10:24:11+0800:     LDC 1.17.0 / DMD v2.087.1 / LLVM8.0.1 / bootstrap LDC - the LLVM D compiler (1.17.0)
+2020-12-16T10:24:11+0800: 
+2020-12-16T10:26:14+0800: ==== Create md5 sum for output bam file ====
+2020-12-16T10:26:31+0800: ==== Clean up the temp files ====
+2020-12-16T10:26:35+0800: === Moving results to: /p9/mcc_hg19ips/data/map_pe/RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001
+2020-12-16T10:26:35+0800: 000scratch
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001.bam
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001.bam.bai
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001.bam.md5
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_fastp_report.html
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_fastp_report.json
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_merged_pairs_bs_seeker2.log
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_merged_reads.bam
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_merged_reads.bam.bai
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_merged_report.html
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_merged_report.json
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_pairs.bam
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_pairs.bam.bai
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_pairs_bs_seeker2.log
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_unmerged_report.html
+2020-12-16T10:26:35+0800: RL2353_2020_12_14_G11_p12plus9_Genea2_ESC_MethylC_S11_L002_R1_001_unmerged_report.json
+2020-12-16T10:26:35+0800: ==== part 3 completed ====
+2020-12-16T10:26:35+0800: == JOB END  STATUS=0 HOST=pnod3701 DATE=Wed Dec 16 10:26:35 AWST 2020 RUNTIME=149 ==
+2020-12-16 10:26:36 +0800: EPILOG deleting /localData/000scratch/slurm_tmpdir/20201216_job_41742790.6Aur
+2020-12-16 10:26:36 +0800: EPILOG deleting /dev/shm/slurm_tmpdir/20201216_job_41742790.WGIQ

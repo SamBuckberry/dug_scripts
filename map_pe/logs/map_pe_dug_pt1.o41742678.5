@@ -1,0 +1,105 @@
+2020-12-16 06:50:19 +0800 pnod2845: PROLOG TMPDIR=/tmp/.tmpdir.41742683 (linked to /p9/000scratch/slurm_tmpdir/20201216_job_41742683.Tu7S)
+2020-12-16 06:50:19 +0800 pnod2845: PROLOG TMPDIR_SHM=/tmp/.tmpdir_shm.41742683 (linked to /dev/shm/slurm_tmpdir/20201216_job_41742683.aFhq)
+2020-12-16T06:50:19+0800: == JOB START  NAME=map_pe_dug_pt1 QUEUE=hg19ips HOST=pnod2845 DATE=Wed Dec 16 06:50:19 AWST 2020 JOBID=41742683 ARRAY_JOBID=41742678 TASK=5 DEPENDENCIES= ==
+2020-12-16T06:50:19+0800: export RJS_TASK=5 depTasks=5 readR1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001.fastq.gz readR2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001.fastq.gz
+2020-12-16T06:50:19+0800: Use bs-seeker2 via the conda environment: 
+2020-12-16T06:50:19+0800: conda deactivate && conda activate /p9/mcc_hg19ips/sw/bs-seeker2/bs-seeker2-2.1.7/bs-seeker2.env
+2020-12-16T06:50:22+0800: #V cores: 272
+2020-12-16T06:50:22+0800: #V readR1: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001.fastq.gz
+2020-12-16T06:50:22+0800: #V readR2: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001.fastq.gz
+2020-12-16T06:50:22+0800: #V baseR1: RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001
+2020-12-16T06:50:22+0800: #V known_adapter: AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+2020-12-16T06:50:22+0800: #V pathJob: /p9/mcc_hg19ips/data/map_pe/working/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001
+2020-12-16T06:50:22+0800: ==== Pre-trim reads report ====
+2020-12-16T06:58:40+0800: Read1 before filtering:
+2020-12-16T06:58:40+0800: total reads: 24414612
+2020-12-16T06:58:40+0800: total bases: 2734436544
+2020-12-16T06:58:40+0800: Q20 bases: 2673573105(97.7742%)
+2020-12-16T06:58:40+0800: Q30 bases: 2549961361(93.2536%)
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Read2 before filtering:
+2020-12-16T06:58:40+0800: total reads: 24414612
+2020-12-16T06:58:40+0800: total bases: 2734436544
+2020-12-16T06:58:40+0800: Q20 bases: 2639186001(96.5166%)
+2020-12-16T06:58:40+0800: Q30 bases: 2489345174(91.0369%)
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Read1 after filtering:
+2020-12-16T06:58:40+0800: total reads: 24414612
+2020-12-16T06:58:40+0800: total bases: 2734436544
+2020-12-16T06:58:40+0800: Q20 bases: 2673573105(97.7742%)
+2020-12-16T06:58:40+0800: Q30 bases: 2549961361(93.2536%)
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Read2 aftering filtering:
+2020-12-16T06:58:40+0800: total reads: 24414612
+2020-12-16T06:58:40+0800: total bases: 2734436544
+2020-12-16T06:58:40+0800: Q20 bases: 2639186001(96.5166%)
+2020-12-16T06:58:40+0800: Q30 bases: 2489345174(91.0369%)
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Filtering result:
+2020-12-16T06:58:40+0800: reads passed filter: 48829224
+2020-12-16T06:58:40+0800: reads failed due to low quality: 0
+2020-12-16T06:58:40+0800: reads failed due to too many N: 0
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Duplication rate: 6.90184%
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: Insert size peak (evaluated by paired-end reads): 185
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: JSON report: RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_fastp_report.json
+2020-12-16T06:58:40+0800: HTML report: RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_fastp_report.html
+2020-12-16T06:58:40+0800: 
+2020-12-16T06:58:40+0800: fastp -Q -A -G -L --in1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001.fastq.gz --in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001.fastq.gz --thread=16 --html=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_fastp_report.html --json=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_fastp_report.json 
+2020-12-16T06:58:40+0800: fastp v0.20.0, time used: 497 seconds
+2020-12-16T06:58:40+0800: ==== Remove adapters using bbduk script in the bbmap toolkit ====
+2020-12-16T06:58:40+0800: java -ea -Xmx60g -Xms60g -cp /d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/current/ jgi.BBDuk in=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001.fastq.gz in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001.fastq.gz out=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_trimmed.fastq out2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_trimmed.fastq literal=AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT threads=272 overwrite=t -Xmx60g overwrite=true
+2020-12-16T06:58:41+0800: Executing jgi.BBDuk [in=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001.fastq.gz, in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/201214_A00690_0092_BHNF7GDRXX/Unaligned/human_iPSC_Polo/RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001.fastq.gz, out=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_trimmed.fastq, out2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_trimmed.fastq, literal=AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT, threads=272, overwrite=t, -Xmx60g, overwrite=true]
+2020-12-16T06:58:41+0800: Version 38.63
+2020-12-16T06:58:41+0800: 
+2020-12-16T06:58:41+0800: Set threads to 272
+2020-12-16T06:58:42+0800: 0.116 seconds.
+2020-12-16T06:58:42+0800: Initial:
+2020-12-16T06:58:42+0800: Memory: max=64424m, total=64424m, free=64390m, used=34m
+2020-12-16T06:58:42+0800: 
+2020-12-16T06:58:42+0800: Added 40 kmers; time: 	0.024 seconds.
+2020-12-16T06:58:42+0800: Memory: max=64424m, total=64424m, free=64332m, used=92m
+2020-12-16T06:58:42+0800: 
+2020-12-16T06:58:42+0800: Input is being processed as paired
+2020-12-16T06:58:42+0800: Started output streams:	0.260 seconds.
+2020-12-16T07:02:09+0800: Processing time:   		207.144 seconds.
+2020-12-16T07:02:09+0800: 
+2020-12-16T07:02:09+0800: Input:                  	48829224 reads 		5468873088 bases.
+2020-12-16T07:02:09+0800: Contaminants:           	198392 reads (0.41%) 	22219904 bases (0.41%)
+2020-12-16T07:02:09+0800: Total Removed:          	198392 reads (0.41%) 	22219904 bases (0.41%)
+2020-12-16T07:02:09+0800: Result:                 	48630832 reads (99.59%) 	5446653184 bases (99.59%)
+2020-12-16T07:02:09+0800: 
+2020-12-16T07:02:09+0800: Time:                         	207.439 seconds.
+2020-12-16T07:02:09+0800: Reads Processed:      48829k 	235.39k reads/sec
+2020-12-16T07:02:09+0800: Bases Processed:       5468m 	26.36m bases/sec
+2020-12-16T07:02:11+0800: ==== Merge overlapping read pairs using the bbmerge script in the bbmap toolkit ====
+2020-12-16T07:02:11+0800: java -ea -Xmx20g -Xms20g -Djava.library.path=/d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/jni/ -cp /d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/current/ jgi.BBMerge in1=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_trimmed.fastq in2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_trimmed.fastq qtrim=r out=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_merged.fastq outu1=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_unmerged.fastq outu2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_unmerged.fastq -Xmx20g
+2020-12-16T07:02:11+0800: Executing jgi.BBMerge [in1=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_trimmed.fastq, in2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_trimmed.fastq, qtrim=r, out=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_merged.fastq, outu1=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R1_001_unmerged.fastq, outu2=RL2345_2020_12_14_G3_p31_55F_primed_MethylC_S3_L001_R2_001_unmerged.fastq, -Xmx20g]
+2020-12-16T07:02:11+0800: Version 38.63
+2020-12-16T07:02:11+0800: 
+2020-12-16T07:02:12+0800: Writing mergable reads merged.
+2020-12-16T07:02:12+0800: Started output threads.
+2020-12-16T07:04:24+0800: Total time: 132.193 seconds.
+2020-12-16T07:04:24+0800: 
+2020-12-16T07:04:24+0800: Pairs:               	24315416
+2020-12-16T07:04:24+0800: Joined:              	10109454   	41.576%
+2020-12-16T07:04:24+0800: Ambiguous:           	14203252   	58.413%
+2020-12-16T07:04:24+0800: No Solution:         	2710       	0.011%
+2020-12-16T07:04:24+0800: Too Short:           	0       	0.000%
+2020-12-16T07:04:24+0800: 
+2020-12-16T07:04:24+0800: Avg Insert:          	163.6
+2020-12-16T07:04:24+0800: Standard Deviation:  	29.5
+2020-12-16T07:04:24+0800: Mode:                	173
+2020-12-16T07:04:24+0800: 
+2020-12-16T07:04:24+0800: Insert range:        	35 - 215
+2020-12-16T07:04:24+0800: 90th percentile:     	202
+2020-12-16T07:04:24+0800: 75th percentile:     	188
+2020-12-16T07:04:24+0800: 50th percentile:     	166
+2020-12-16T07:04:24+0800: 25th percentile:     	142
+2020-12-16T07:04:24+0800: 10th percentile:     	122
+2020-12-16T07:04:27+0800: ==== part 1 completed ====
+2020-12-16T07:04:27+0800: == JOB END  STATUS=0 HOST=pnod2845 DATE=Wed Dec 16 07:04:27 AWST 2020 RUNTIME=849 ==
+2020-12-16 07:04:27 +0800: EPILOG deleting /p9/000scratch/slurm_tmpdir/20201216_job_41742683.Tu7S
+2020-12-16 07:04:27 +0800: EPILOG deleting /dev/shm/slurm_tmpdir/20201216_job_41742683.aFhq

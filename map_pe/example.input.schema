@@ -1,0 +1,4 @@
+1 depTasks=1 readR1=/p9/mcc_hg19ips/data/unaligned/test_data/test_WGBS_1M_reads_R1.fastq.gz readR2=/p9/mcc_hg19ips/data/unaligned/test_data/test_WGBS_1M_reads_R2.fastq.gz 
+2 depTasks=2 readR1=/p9/mcc_hg19ips/data/unaligned/test_data/test_WGBS_10M_reads_R1.fastq.gz readR2=/p9/mcc_hg19ips/data/unaligned/test_data/test_WGBS_10M_reads_R2.fastq.gz
+3 depTasks=3 readR1=/p9/mcc_hg19ips/data/unaligned/test_data/RL1989_2019_12_30_32F_d13p39_TNT_MethylC_S5_L001_R1_001.fastq.gz readR2=/p9/mcc_hg19ips/data/unaligned/test_data/RL1989_2019_12_30_32F_d13p39_TNT_MethylC_S5_L001_R2_001.fastq.gz
+4 depTasks=4 readR1=/p9/mcc_hg19ips/data/unaligned/RL1991_2019_12_30_38F_p12p18_N2P_MethylC_S7_all_lanes_R1.fastq.gz readR2=/p9/mcc_hg19ips/data/unaligned/RL1991_2019_12_30_38F_p12p18_N2P_MethylC_S7_all_lanes_R2.fastq.gz

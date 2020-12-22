@@ -1,0 +1,105 @@
+2020-12-15 12:23:07 +0800 pnod1-13-35: PROLOG TMPDIR=/tmp/.tmpdir.41733214 (linked to /p9/000scratch/slurm_tmpdir/20201215_job_41733214.VPx6)
+2020-12-15 12:23:07 +0800 pnod1-13-35: PROLOG TMPDIR_SHM=/tmp/.tmpdir_shm.41733214 (linked to /dev/shm/slurm_tmpdir/20201215_job_41733214.364c)
+2020-12-15T12:23:07+0800: == JOB START  NAME=map_pe_dug_pt1 QUEUE=hg19ips HOST=pnod1-13-35 DATE=Tue Dec 15 12:23:07 AWST 2020 JOBID=41733214 ARRAY_JOBID=41733214 TASK=2 DEPENDENCIES= ==
+2020-12-15T12:23:07+0800: export RJS_TASK=2 depTasks=2 readR1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R1.fastq.gz  readR2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R2.fastq.gz
+2020-12-15T12:23:08+0800: Use bs-seeker2 via the conda environment: 
+2020-12-15T12:23:08+0800: conda deactivate && conda activate /p9/mcc_hg19ips/sw/bs-seeker2/bs-seeker2-2.1.7/bs-seeker2.env
+2020-12-15T12:23:10+0800: #V cores: 272
+2020-12-15T12:23:10+0800: #V readR1: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R1.fastq.gz
+2020-12-15T12:23:10+0800: #V readR2: /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R2.fastq.gz
+2020-12-15T12:23:10+0800: #V baseR1: test_WGBS_1M_reads_R1
+2020-12-15T12:23:10+0800: #V known_adapter: AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+2020-12-15T12:23:10+0800: #V pathJob: /p9/mcc_hg19ips/data/map_pe/working/test_WGBS_1M_reads_R1
+2020-12-15T12:23:10+0800: ==== Pre-trim reads report ====
+2020-12-15T12:23:30+0800: Read1 before filtering:
+2020-12-15T12:23:30+0800: total reads: 1000000
+2020-12-15T12:23:30+0800: total bases: 112000000
+2020-12-15T12:23:30+0800: Q20 bases: 108701645(97.055%)
+2020-12-15T12:23:30+0800: Q30 bases: 102142166(91.1984%)
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Read2 before filtering:
+2020-12-15T12:23:30+0800: total reads: 1000000
+2020-12-15T12:23:30+0800: total bases: 112000000
+2020-12-15T12:23:30+0800: Q20 bases: 107683746(96.1462%)
+2020-12-15T12:23:30+0800: Q30 bases: 100036399(89.3182%)
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Read1 after filtering:
+2020-12-15T12:23:30+0800: total reads: 1000000
+2020-12-15T12:23:30+0800: total bases: 112000000
+2020-12-15T12:23:30+0800: Q20 bases: 108701645(97.055%)
+2020-12-15T12:23:30+0800: Q30 bases: 102142166(91.1984%)
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Read2 aftering filtering:
+2020-12-15T12:23:30+0800: total reads: 1000000
+2020-12-15T12:23:30+0800: total bases: 112000000
+2020-12-15T12:23:30+0800: Q20 bases: 107683746(96.1462%)
+2020-12-15T12:23:30+0800: Q30 bases: 100036399(89.3182%)
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Filtering result:
+2020-12-15T12:23:30+0800: reads passed filter: 2000000
+2020-12-15T12:23:30+0800: reads failed due to low quality: 0
+2020-12-15T12:23:30+0800: reads failed due to too many N: 0
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Duplication rate: 11.452%
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: Insert size peak (evaluated by paired-end reads): 176
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: JSON report: test_WGBS_1M_reads_R1_fastp_report.json
+2020-12-15T12:23:30+0800: HTML report: test_WGBS_1M_reads_R1_fastp_report.html
+2020-12-15T12:23:30+0800: 
+2020-12-15T12:23:30+0800: fastp -Q -A -G -L --in1=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R1.fastq.gz --in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R2.fastq.gz --thread=16 --html=test_WGBS_1M_reads_R1_fastp_report.html --json=test_WGBS_1M_reads_R1_fastp_report.json 
+2020-12-15T12:23:30+0800: fastp v0.20.0, time used: 20 seconds
+2020-12-15T12:23:30+0800: ==== Remove adapters using bbduk script in the bbmap toolkit ====
+2020-12-15T12:23:30+0800: java -ea -Xmx60g -Xms60g -cp /d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/current/ jgi.BBDuk in=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R1.fastq.gz in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R2.fastq.gz out=test_WGBS_1M_reads_R1_trimmed.fastq out2=test_WGBS_1M_reads_R2_trimmed.fastq literal=AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT threads=272 overwrite=t -Xmx60g overwrite=true
+2020-12-15T12:23:31+0800: Executing jgi.BBDuk [in=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R1.fastq.gz, in2=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/unaligned/test_WGBS_1M_reads_R2.fastq.gz, out=test_WGBS_1M_reads_R1_trimmed.fastq, out2=test_WGBS_1M_reads_R2_trimmed.fastq, literal=AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT, threads=272, overwrite=t, -Xmx60g, overwrite=true]
+2020-12-15T12:23:31+0800: Version 38.63
+2020-12-15T12:23:31+0800: 
+2020-12-15T12:23:31+0800: Set threads to 272
+2020-12-15T12:23:32+0800: 0.094 seconds.
+2020-12-15T12:23:32+0800: Initial:
+2020-12-15T12:23:32+0800: Memory: max=64424m, total=64424m, free=64390m, used=34m
+2020-12-15T12:23:32+0800: 
+2020-12-15T12:23:32+0800: Added 40 kmers; time: 	0.024 seconds.
+2020-12-15T12:23:32+0800: Memory: max=64424m, total=64424m, free=64340m, used=84m
+2020-12-15T12:23:32+0800: 
+2020-12-15T12:23:32+0800: Input is being processed as paired
+2020-12-15T12:23:32+0800: Started output streams:	0.194 seconds.
+2020-12-15T12:23:37+0800: Processing time:   		4.789 seconds.
+2020-12-15T12:23:37+0800: 
+2020-12-15T12:23:37+0800: Input:                  	2000000 reads 		224000000 bases.
+2020-12-15T12:23:37+0800: Contaminants:           	22798 reads (1.14%) 	2553376 bases (1.14%)
+2020-12-15T12:23:37+0800: Total Removed:          	22798 reads (1.14%) 	2553376 bases (1.14%)
+2020-12-15T12:23:37+0800: Result:                 	1977202 reads (98.86%) 	221446624 bases (98.86%)
+2020-12-15T12:23:37+0800: 
+2020-12-15T12:23:37+0800: Time:                         	5.015 seconds.
+2020-12-15T12:23:37+0800: Reads Processed:       2000k 	398.81k reads/sec
+2020-12-15T12:23:37+0800: Bases Processed:        224m 	44.67m bases/sec
+2020-12-15T12:23:37+0800: ==== Merge overlapping read pairs using the bbmerge script in the bbmap toolkit ====
+2020-12-15T12:23:37+0800: java -ea -Xmx20g -Xms20g -Djava.library.path=/d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/jni/ -cp /d/sw/spack/latest/opt/spack/linux-centos7-sandybridge/gcc-9.2.0/bbmap-38.63-53urpsbksme552pm2vzc4qhwmsmvpjdc/bin/current/ jgi.BBMerge in1=test_WGBS_1M_reads_R1_trimmed.fastq in2=test_WGBS_1M_reads_R2_trimmed.fastq qtrim=r out=test_WGBS_1M_reads_R1_merged.fastq outu1=test_WGBS_1M_reads_R1_unmerged.fastq outu2=test_WGBS_1M_reads_R2_unmerged.fastq -Xmx20g
+2020-12-15T12:23:38+0800: Executing jgi.BBMerge [in1=test_WGBS_1M_reads_R1_trimmed.fastq, in2=test_WGBS_1M_reads_R2_trimmed.fastq, qtrim=r, out=test_WGBS_1M_reads_R1_merged.fastq, outu1=test_WGBS_1M_reads_R1_unmerged.fastq, outu2=test_WGBS_1M_reads_R2_unmerged.fastq, -Xmx20g]
+2020-12-15T12:23:38+0800: Version 38.63
+2020-12-15T12:23:38+0800: 
+2020-12-15T12:23:38+0800: Writing mergable reads merged.
+2020-12-15T12:23:38+0800: Started output threads.
+2020-12-15T12:23:44+0800: Total time: 6.344 seconds.
+2020-12-15T12:23:44+0800: 
+2020-12-15T12:23:44+0800: Pairs:               	988601
+2020-12-15T12:23:44+0800: Joined:              	500934   	50.671%
+2020-12-15T12:23:44+0800: Ambiguous:           	487474   	49.309%
+2020-12-15T12:23:44+0800: No Solution:         	193       	0.020%
+2020-12-15T12:23:44+0800: Too Short:           	0       	0.000%
+2020-12-15T12:23:44+0800: 
+2020-12-15T12:23:44+0800: Avg Insert:          	156.8
+2020-12-15T12:23:44+0800: Standard Deviation:  	31.9
+2020-12-15T12:23:44+0800: Mode:                	159
+2020-12-15T12:23:44+0800: 
+2020-12-15T12:23:44+0800: Insert range:        	35 - 215
+2020-12-15T12:23:44+0800: 90th percentile:     	199
+2020-12-15T12:23:44+0800: 75th percentile:     	183
+2020-12-15T12:23:44+0800: 50th percentile:     	158
+2020-12-15T12:23:44+0800: 25th percentile:     	133
+2020-12-15T12:23:44+0800: 10th percentile:     	112
+2020-12-15T12:23:45+0800: ==== part 1 completed ====
+2020-12-15T12:23:45+0800: == JOB END  STATUS=0 HOST=pnod1-13-35 DATE=Tue Dec 15 12:23:45 AWST 2020 RUNTIME=39 ==
+2020-12-15 12:23:45 +0800: EPILOG deleting /p9/000scratch/slurm_tmpdir/20201215_job_41733214.VPx6
+2020-12-15 12:23:45 +0800: EPILOG deleting /dev/shm/slurm_tmpdir/20201215_job_41733214.364c
