@@ -23,7 +23,7 @@ log.file = fs::path_expand(log.file)
 -%>
 
 
-SBATCH --job-name=<%= dmr_testing %>
+SBATCH --job-name=<%= job.name %>
 SBATCH --output=<%= log.file %>
 SBATCH --error=<%= log.file %>
 SBATCH --time=<%= ceiling(resources$walltime / 60) %>
