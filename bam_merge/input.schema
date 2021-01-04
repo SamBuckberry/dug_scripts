@@ -1,0 +1,2 @@
+1 depTasks=1 library=test_run_1 file_list=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/map_pe/201214_A00690_0092_BHNF7GDRXX/test_list.txt
+2 depTasks=2 library=test_run_2 file_list=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/map_pe/201214_A00690_0092_BHNF7GDRXX/test_list.txt
