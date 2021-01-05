@@ -2,16 +2,28 @@
 #rj name=bam_merge queue=hg19ips features=knl,centos7 schema=input.schema
 
 # Activate modules in team area
+module add hpc
 module use /p9/mcc_hg19ips/sw/modules
 module add bashutils
 module add sambamba
 
+fileExists $file_list
+
 ## Set the output folder
 pathWorking=/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/data/aligned
 
+CL_PARAMS="array dep"
+. command-line
+
+[[ $array ]] && RJSArray="array=$array"
+
+
+
+base=$(basename)
+
 lib="$library"
 
-bam_list="$file_list"
+bam_list=$file_list
 
 bam_files=$(cat "$bam_list")
 
@@ -24,5 +36,4 @@ out_file="$out_folder"/"$lib"/"$lib"_all_merged.bam
 cp "$bam_list" "$out_folder"/"$lib"
 
 # Run the file merging
-
 sambamba merge -p -t 26 "$out_file" $bam_files
