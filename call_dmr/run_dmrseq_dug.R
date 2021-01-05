@@ -87,6 +87,8 @@ BiocParallel::register(BPPARAM = MulticoreParam(workers = 22))
 
 chunks <- length(levels(seqnames(obj_list)))
 
+message(str_c("Chunks = ",chunks)
+
 dmrs <- dmrseq(obj_list, testCovariate = "CellType",
                maxPerms = 10, cutoff = 0.05,
                chrsPerChunk = chunks)
