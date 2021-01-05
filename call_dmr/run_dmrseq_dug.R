@@ -85,7 +85,9 @@ BiocParallel::register(BPPARAM = MulticoreParam(workers = 22))
 #!!!!!------- This is the function that will use the parallel processing
 # If we run into memory issues, the chrsPerChunk argument could be reduced to a smaller number, like 11
 
-chunks <- length(levels(seqnames(obj_list)))
+obj_list <- dropSeqlevels(obj_list, pruning.mode = "coarse")
+
+chunks <- length(seqlevelsInUse(obj_list))
 
 message(str_c("Chunks = ",chunks))
 
