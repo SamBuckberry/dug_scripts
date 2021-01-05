@@ -6,6 +6,8 @@
 #SBATCH --error=submit_dmr.err
 
 # Add the modules needed for the R script
+module add hpc
+module use /p9/mcc_hg19ips/sw/modules
 module add R
 
 Rscript ./run_dmrseq_dug.R \
