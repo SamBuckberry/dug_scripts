@@ -33,8 +33,6 @@ stopifnot(length(uniq_groups) == 2)
 stopifnot(length(unique(man_dat$id)) == nrow(man_dat))
 
 # Chromosomes to test for DMRs
-chrom_list <- str_c("chr", 20:22)
-
 chrom_list <- str_c("chr", 1:22)
 
 # Read a Bs_seq boject from .Rds file
@@ -52,8 +50,6 @@ read_bs_obj <- function(rds_path, chroms){
 # Load the data, and sub-select targeted chromosomes
 obj_list <- lapply(X = man_dat$rds_path, read_bs_obj,
                    chroms = chrom_list)
-
-saveRDS(object = obj_list[[1]][], file = "/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2343_test.Rds")
 
 # Combine all of the bsseq objects into one
 obj_list <- bsseq::combineList(x = obj_list)
@@ -77,15 +73,18 @@ colnames(obj_list) <- man_dat$id
 
 ##  Something like this should get the `dmrseq` function below to run on multiple nodes.
 ## Will need to setup slurm template file for the "template" argument below
-BiocParallel::register(BPPARAM = BatchtoolsParam(workers=24,
-                                                 cluster="slurm",
-                                                 template = "path/to/template/file"))
+
+#BiocParallel::register(BPPARAM = BatchtoolsParam(workers=24,
+#                                                 cluster="slurm",
+#                                                 template = "path/to/template/file"))
 
 # The following will use 22 core on one node... Might be too much for a full dataset
-# This option will need to be removed to test the above 
+# The line below will need to be removed to test the above 
 BiocParallel::register(BPPARAM = MulticoreParam(workers = 22))
 
 #!!!!!------- This is the function that will use the parallel processing
+# If we run into memory issues, the chrsPerChunk argument could be reduced to a smaller number, like 11
+
 dmrs <- dmrseq(obj_list, testCovariate = "CellType",
                maxPerms = 10, cutoff = 0.05,
                chrsPerChunk = length(chrom_list))
