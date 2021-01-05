@@ -10,7 +10,7 @@ args = commandArgs(TRUE)
 # Path to DMR manifest file. This is a csv file with the column names id, group, rds_path 
 manifest <- args[1] # must be absolute path
 out_path <- args[2] # must be folder path ending in /
-prefix <- args[2] # Out file prefix
+prefix <- args[3] # Out file prefix
 
 #-------- Read the DMR manifest file
 
