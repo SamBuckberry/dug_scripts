@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=submit_dmr.job
+#SBATCH --partition=hg19ips
 #SBATCH --output=submit_dmr.out
 #SBATCH --error=submit_dmr.err
 
