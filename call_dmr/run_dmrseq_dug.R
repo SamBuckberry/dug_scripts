@@ -85,9 +85,11 @@ BiocParallel::register(BPPARAM = MulticoreParam(workers = 22))
 #!!!!!------- This is the function that will use the parallel processing
 # If we run into memory issues, the chrsPerChunk argument could be reduced to a smaller number, like 11
 
+chunks <- length(levels(seqnames(obj_list)))
+
 dmrs <- dmrseq(obj_list, testCovariate = "CellType",
                maxPerms = 10, cutoff = 0.05,
-               chrsPerChunk = length(chrom_list))
+               chrsPerChunk = chunks)
 
 # Output results
 out_list <- list(manifest_data = man_dat, dmr_granges = dmrs)
