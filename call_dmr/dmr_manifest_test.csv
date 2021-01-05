@@ -1,0 +1,5 @@
+id,group,rds_path
+RL2343,primed,/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2343_test.Rds
+RL2344,primed,/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2344_test.Rds
+RL2347,tnt,/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2347_test.Rds
+RL2348,tnt,/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2348_test.Rds
