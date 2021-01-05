@@ -3,25 +3,19 @@ library(dmrseq)
 library(magrittr)
 library(stringr)
 library(BiocParallel)
-library(data.table)
-#library(Rmpi)
-#library(batchtools)
+library(batchtools)
 
 args = commandArgs(TRUE)
 
 # Path to DMR manifest file. This is a csv file with the column names id, group, rds_path 
-manifest <- args[1]
-out_path <- args[2]
-prefix <- args[3]
+manifest <- args[1] # must be absolute path
+out_path <- args[2] # must be folder path ending in /
+prefix <- args[2] # Out file prefix
 
 #-------- Read the DMR manifest file
 
 # Check that the manifest file exists
-
-(!file.exists(manifest)){
-    cat('Cannot find', manifest, 'exiting!\n')
-    stop()
-}
+stopifnot(file.exists(manifest) == TRUE)
 
 # Read the manifest file
 man_dat <- read.table(manifest, header = TRUE, sep = ",",
@@ -39,22 +33,29 @@ stopifnot(length(uniq_groups) == 2)
 stopifnot(length(unique(man_dat$id)) == nrow(man_dat))
 
 # Chromosomes to test for DMRs
+chrom_list <- str_c("chr", 20:22)
+
 chrom_list <- str_c("chr", 1:22)
 
 # Read a Bs_seq boject from .Rds file
 read_bs_obj <- function(rds_path, chroms){
-
+    
    bs_obj <- readRDS(file = rds_path)
-   bs_obj <- strandCollapse(bs_obj)
    bs_obj <- chrSelectBSseq(BSseq = bs_obj,
                             seqnames = chroms,
                             order = TRUE)
+   bs_obj <- strandCollapse(bs_obj)
    return(bs_obj)
 
 }
 
 # Load the data, and sub-select targeted chromosomes
-obj_list <- lapply(X = obj_fls, read_bs_obj, chroms = str_c("chr", 1:22))
+obj_list <- lapply(X = man_dat$rds_path, read_bs_obj,
+                   chroms = chrom_list)
+
+saveRDS(object = obj_list[[1]][], file = "/d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/RL2343_test.Rds")
+
+# Combine all of the bsseq objects into one
 obj_list <- bsseq::combineList(x = obj_list)
 
 # Remove CpG with no coverage
@@ -63,15 +64,7 @@ obj_list <- obj_list[loci.idx, ]
 
 # Setup the groups
 pData(obj_list)$CellType <- factor(man_dat$group)
-
-# Ensure metadata and data are in same order
-stopifnot(all(str_sub(md$cg_bsseq, start = 1, end = 6) == str_sub(colnames(obj_list), start = 1, end = 6)))
-
 colnames(obj_list) <- man_dat$id
-
-# Remove CpG with no coverage
-loci.idx <- which(DelayedMatrixStats::rowSums2(getCoverage(obj_list, type="Cov")==0) == 0)
-obj_list <- obj_list[loci.idx, ]
 
 #-------- Call DMRs
 
@@ -80,22 +73,31 @@ obj_list <- obj_list[loci.idx, ]
 # More in depth documentation at https://bioconductor.org/packages/release/bioc/manuals/BiocParallel/man/BiocParallel.pdf
 # and here https://hpc.nih.gov/apps/R.html#biocparallel
 
-# The goal is to use one node per chromosome for parallel processing
+# The goal is to setup the `dmrseq` function for parallel processing using multiple nodes
 
-BiocParallel::register(BPPARAM = BatchtoolsParam(workers=length(chrom_list), cluster="slurm"))
+##  Something like this should get the `dmrseq` function below to run on multiple nodes.
+## Will need to setup slurm template file for the "template" argument below
+BiocParallel::register(BPPARAM = BatchtoolsParam(workers=24,
+                                                 cluster="slurm",
+                                                 template = "path/to/template/file"))
+
+# The following will use 22 core on one node... Might be too much for a full dataset
+# This option will need to be removed to test the above 
+BiocParallel::register(BPPARAM = MulticoreParam(workers = 22))
 
 #!!!!!------- This is the function that will use the parallel processing
-dmrs <- dmrseq(obj_list, testCovariate = "CellType")
-
-out_list <- list(obj_list, dmrs)
+dmrs <- dmrseq(obj_list, testCovariate = "CellType",
+               maxPerms = 10, cutoff = 0.05,
+               chrsPerChunk = length(chrom_list))
 
 # Output results
-dmr_out <- str_c(out_path, prefix, "dmrseq_dmrs.Rds")
-saveRDS(object = dmrs, file = dmr_out)
-message(str_c("DMR file saved to ", dmr_out))
+out_list <- list(manifest_data = man_dat, dmr_granges = dmrs)
 
+out_file <- str_c(out_path, prefix, "_", uniq_groups[1],
+                 "_vs_", uniq_groups[2],
+                 "_dmrseq_dmrs.Rds")
 
-savehistory(file = str_c(out_path, prefix, "dmrseq_dmrs.log"))
+saveRDS(object = out_list, file = out_file)
 
-sink(str_c(out_path, prefix, "dmrseq_dmrs.log"), split = TRUE)
+message(str_c("DMR file saved to ", out_file))
 
