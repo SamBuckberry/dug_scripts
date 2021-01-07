@@ -21,7 +21,7 @@ gc()
 args <- commandArgs(TRUE)
 
 # Path to a CGmap file from BSseeker2
-path <- args[1]
+cgmap_path <- args[1]
 
 # Function to create bigwig file
 CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1000,
@@ -74,10 +74,10 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
                            M = matrix(dat$C_reads),
                            Cov = matrix(dat$CT_reads))
     
-    rm(dat); gc()
-    
     # Add strand to bsseq object
     bsseq::strand(bs_obj) <- dat$base
+    
+    rm(dat); gc()
     
     # Collapse strand if context is CG.
     # This helps reduce file size through aggregating symmetrical CGs
@@ -122,8 +122,6 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     
     gr_mc <- lapply(contigs, calc_mC_window_contig) %>% GRangesList() %>% unlist()
 
-    bu <- gr_mc
-    
     #---- Calculate non-conversion rate and subtract from windows
     # Note that this calculates the non-conversion for the context only
     
@@ -163,7 +161,7 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     
     gr_mc <- keepSeqlevels(x = gr_mc, value = contigs)
     
-    all_seqlengths <- seqlengths(BSgenome.Hsapiens.UCSC.hg19)
+    all_seqlengths <- seqlengths(x = BSgenome.Hsapiens.UCSC.hg19)
     all_seqlengths <- all_seqlengths[names(all_seqlengths) %in% seqnames(gr_mc)]
     seqlengths(gr_mc) <- all_seqlengths
     
@@ -178,4 +176,4 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     
 }
 
-CGmap_to_window_bigwig(path = path)
+CGmap_to_window_bigwig(path = cgmap_path)
