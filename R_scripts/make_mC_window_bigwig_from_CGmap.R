@@ -7,6 +7,7 @@ library(data.table)
 library(R.utils)
 library(rtracklayer)
 library(GenomicRanges)
+library(tools)
 
 # Load library for hg19. This will need to change for other genome assemblies
 library(BSgenome.Hsapiens.UCSC.hg19)
