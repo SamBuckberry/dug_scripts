@@ -14,9 +14,6 @@ library(BSgenome.Hsapiens.UCSC.hg19)
 # Do not output scientific notation
 options(scipen=999)
 
-# initial garbage collection
-gc()
-
 # Set command line arguments
 args <- commandArgs(TRUE)
 
@@ -40,12 +37,15 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     file_ext <- str_c("_", context, "_", "Window",
                       win_size, "_Step", win_step, ".bigwig")
     
-    out_path <- str_replace(string = path, pattern = ".CGmap.gz$",
-                            replacement = file_ext)
+    out_path <- str_c(file_path_sans_ext(path), file_ext)
+    
+    #out_path <- str_replace(string = path, pattern = ".CGmap.gz$",
+    #                        replacement = file_ext)
     
     #---- Read CGmap file to bsseq object and subset for context
     
     # Read the data
+    message(str_c("Decompressing and reading ", path))
     dat <- data.table::fread(path, header = FALSE,
                              select = c(1,2,3,5,7,8), sep = "\t",
                              col.names = c("chr", "base", "position",
@@ -63,8 +63,6 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     }
     
     dat <- subset(dat, keep)
-    
-    message("Calculating methylation levels...")
     
     # Add strand info
     dat$base <- ifelse(test = dat$base == "C", yes = "+", no = "-")
@@ -87,6 +85,7 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     }
     
     #---- Make windows
+    message("Making windows for genome...")
     gr_genome <- GRanges(seqinfo(BSgenome.Hsapiens.UCSC.hg19))
     gr_genome <- gr_genome[seqnames(gr_genome) %in% contigs]
     
@@ -99,7 +98,10 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     #---- Calculate methylation for windows per chromosome
     # Without looping through chromosomes, this would eat a lot of memory
     
+    message("Calculating methylation levels for windows...")
     calc_mC_window_contig <- function(contig){
+        
+        message(contig)
         
         bs_sub <- chrSelectBSseq(BSseq = bs_obj, seqnames = contig)
         
@@ -143,10 +145,13 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     }
     
     if (nc_correct == TRUE){
+        message("Correcting for non-conversion...")
         gr_mc <- correct_nc(gr_mc)
     }
     
     #---- Extract last range to resize seperately or else it will overlap
+    message("Preparing data for bigwig output...")
+    
     ind <- seqnames(gr_mc)
     ends <- ind@lengths %>% cumsum()
     gr_ends <- gr_mc[ends] 
@@ -172,8 +177,10 @@ CGmap_to_window_bigwig <- function(path, context="CA", win_size=5000, win_step=1
     gr_mc$pc <- NULL
     
     # Write the output file
+    message("Writing output file...")
     export.bw(object = gr_mc, con = out_path)
     
+    message("Done!")
 }
 
 CGmap_to_window_bigwig(path = cgmap_path)
