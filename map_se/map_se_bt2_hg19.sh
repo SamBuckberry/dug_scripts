@@ -102,4 +102,5 @@ msg "=== Create md5 sum for output bam file ==="
 md5sum "$prefix".bam > "$prefix".bam.md5
 
 msg "=== Clean up scratch ==="
-ls "$pathScratch/"*/* >/dev/null 2>&1 && rm "$pathScratch/"*/*
+#ls "$pathScratch/"*/* >/dev/null 2>&1 && 
+rm "$pathScratch/"
