@@ -83,7 +83,7 @@ parallel -j7 bs_seeker2-align.py \
 
 msg "=== Sort bam files ==="
 for f in "$pathWorking"/000[1-7].$prefix.split.fastq.bam; do
-	sambamba sort -t "$cores" $f
+	sambamba sort -t 24 $f
 done
 
 rm "$pathWorking"/000[1-7].$prefix.split.fastq.gz
