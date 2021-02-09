@@ -1,11 +1,6 @@
 #!/bin/bash
 #rj name=map_se queue=hg19ips features=knl,centos7,fastio logdir=logs schema=input.schema runtime=48
 
-#####
-# To run pipeline:
-# rjs ./submit_map_se.sh
-#####
-
 #immediately exit if any command has a non-zero exit status
 set -e 
 set -o pipefail
