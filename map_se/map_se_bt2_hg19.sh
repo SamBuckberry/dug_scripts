@@ -103,4 +103,4 @@ md5sum "$prefix".bam > "$prefix".bam.md5
 
 msg "=== Clean up scratch ==="
 #ls "$pathScratch/"*/* >/dev/null 2>&1 && 
-rm "$pathScratch/"
+rm -r "$pathScratch/"
