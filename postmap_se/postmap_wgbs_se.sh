@@ -44,23 +44,35 @@ pathScratch="$pathWorking/000scratch/$SLURM_JOB_ID"
 
 logvars file cores sambamba_markdup_cores indexBS genome prefix
 
-msg "==== Remove the PCR duplicates and save output file===="
-sambamba markdup -r -t $sambamba_markdup_cores -p --tmpdir=$pathScratch "$file" $pathWorking/"$prefix".dedup.bam
+#msg "==== Remove the PCR duplicates and save output file===="
+#sambamba markdup -r -t $sambamba_markdup_cores -p --tmpdir=$pathScratch "$file" $pathWorking/"$prefix".dedup.bam
 
 msg "==== Get the chromosome/contig id's for splitting. grep -V avoids bug with samtools output===="
-samtools idxstats $pathWorking/"$prefix".dedup.bam | cut -f 1 | grep -v \* > $pathWorking/"$prefix".chromNames
+#samtools idxstats $pathWorking/"$prefix".dedup.bam | cut -f 1 | grep -v \* > $pathWorking/"$prefix".chromNames
+
+samtools idxstats "$file" | cut -f 1 | grep -v \* > $pathWorking/"$prefix".chromNames
 
 msg "==== Split the bamfile into chromosome specific files ===="
 # Split the bamfile into chromosome specific files
-cat $pathWorking/"$prefix".chromNames | parallel -j$cores samtools view -b -o $pathWorking/"$prefix".{1}.temp.bam $pathWorking/"$prefix".dedup.bam {1}
+cat $pathWorking/"$prefix".chromNames | parallel -j$cores samtools view -b -o $pathWorking/"$prefix".{1}.temp.bam "$file" {1}
 
-msg "==== Remove lambda bam ===="
+msg "==== Remove phiX bam ===="
 # Remove lambda bam
 rm $pathWorking/"$prefix".gi_9626372_ref_NC_001422_1_.temp.bam
 
+msg "==== Remove the PCR duplicates for the paired reads ===="
+# Remove the PCR duplicates for the paired reads
+for i in $pathWorking/"$prefix".chr*.temp.bam; do
+	msg "== sambamba markdup processing $i =="
+	timeout 20m sambamba markdup -r -t "$sambamba_markdup_cores" --tmpdir="$pathScratch" "$i" "$i"_dedup.bam ||
+	timeout 20m sambamba markdup -r -t "$((sambamba_markdup_cores/2+1))" --tmpdir="$pathScratch" "$i" "$i"_dedup.bam ||
+	timeout 20m sambamba markdup -r -t "$((sambamba_markdup_cores/2-1))" --tmpdir="$pathScratch" "$i" "$i"_dedup.bam ||
+	(echo "sambamba markdup timeout after 20mins in 3 attempts"; exit 100)
+done
+
 msg "==== call mC levels===="
 module add cgmaptools
-parallel -j$cores CGmapFromBAM -b {} -g "$indexBS/$genome" -o {.} ::: $pathWorking/"$prefix".*.temp.bam
+parallel -j$cores CGmapFromBAM -b {} -g "$indexBS/$genome" -o {.} ::: $pathWorking/"$prefix".chr*.temp.bam_dedup.bam
 
 msg "==== Recombine the output files and clean up===="
 # Recombine the output files and clean up
@@ -69,7 +81,7 @@ ls $pathWorking/"$prefix".*.temp.ATCGmap.gz | xargs zcat > "$prefix".ATCGmap && 
 ls $pathWorking/"$prefix".*.temp.CGmap.gz | xargs zcat > "$prefix".CGmap && pigz -f -p $cores "$prefix".CGmap &&
 
 msg "==== Cleanup files ===="
-rm $pathWorking/"$prefix".*.temp.ATCGmap.gz $pathWorking/"$prefix".*.temp.CGmap.gz $pathWorking/"$prefix".*.wig.gz $pathWorking/"$prefix"*.temp.bam $pathWorking/"$prefix".chromNames
+#rm $pathWorking/"$prefix".*.temp.ATCGmap.gz $pathWorking/"$prefix".*.temp.CGmap.gz $pathWorking/"$prefix".*.wig.gz $pathWorking/"$prefix"*.temp.bam $pathWorking/"$prefix".chromNames
 
 msg "=== Clean up scratch ==="
-rm -r "$pathScratch/"
+#rm -r "$pathScratch/"
