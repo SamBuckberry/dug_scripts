@@ -70,6 +70,9 @@ for i in $pathWorking/"$prefix".chr*.temp.bam; do
 	(echo "sambamba markdup timeout after 20mins in 3 attempts"; exit 100)
 done
 
+msg "==== Recombine bam files ===="
+sambamba merge -t "$cores" "$prefix".dedup.bam $pathWorking/"$prefix".chr*.temp.bam_dedup.bam
+
 msg "==== call mC levels===="
 module add cgmaptools
 parallel -j$cores CGmapFromBAM -b {} -g "$indexBS/$genome" -o {.} ::: $pathWorking/"$prefix".chr*.temp.bam_dedup.bam
@@ -82,9 +85,9 @@ ls $pathWorking/"$prefix".*.temp.bam_dedup.ATCGmap.gz | xargs zcat > "$prefix".A
 ls $pathWorking/"$prefix".*.temp.bam_dedup.CGmap.gz | xargs zcat > "$prefix".CGmap && pigz -f -p $cores "$prefix".CGmap &&
 
 msg "==== Cleanup files ===="
-rm $pathWorking/"$prefix".*.temp.bam_dedup.ATCGmap.gz $pathWorking/"$prefix".*.temp.bam_dedup.CGmap.gz \
-$pathWorking/"$prefix".*wig.gz $pathWorking/"$prefix".chr*.temp.bam_dedup.bam $pathWorking/"$prefix".chromNames \
-$pathWorking/"$prefix".*.temp.bam_dedup.bam.bai $pathWorking/"$prefix".*.temp.bam
+#rm $pathWorking/"$prefix".*.temp.bam_dedup.ATCGmap.gz $pathWorking/"$prefix".*.temp.bam_dedup.CGmap.gz \
+#$pathWorking/"$prefix".*wig.gz $pathWorking/"$prefix".chr*.temp.bam_dedup.bam $pathWorking/"$prefix".chromNames \
+#$pathWorking/"$prefix".*.temp.bam_dedup.bam.bai $pathWorking/"$prefix".*.temp.bam
 
 msg "=== Clean up scratch ==="
 rm -r "$pathScratch/"
