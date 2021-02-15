@@ -82,7 +82,7 @@ ls $pathWorking/"$prefix".*.temp.bam_dedup.ATCGmap.gz | xargs zcat > "$prefix".A
 ls $pathWorking/"$prefix".*.temp.bam_dedup.CGmap.gz | xargs zcat > "$prefix".CGmap && pigz -f -p $cores "$prefix".CGmap &&
 
 msg "==== Cleanup files ===="
-#rm $pathWorking/"$prefix".*.temp.ATCGmap.gz $pathWorking/"$prefix".*.temp.CGmap.gz $pathWorking/"$prefix".*.wig.gz $pathWorking/"$prefix"*.temp.bam $pathWorking/"$prefix".chromNames
+rm $pathWorking/"$prefix".*.temp.ATCGmap.gz $pathWorking/"$prefix".*.temp.CGmap.gz $pathWorking/"$prefix".*.wig.gz $pathWorking/"$prefix"*.temp.bam $pathWorking/"$prefix".chromNames
 
 msg "=== Clean up scratch ==="
-#rm -r "$pathScratch/"
+rm -r "$pathScratch/"
