@@ -76,9 +76,10 @@ parallel -j$cores CGmapFromBAM -b {} -g "$indexBS/$genome" -o {.} ::: $pathWorki
 
 msg "==== Recombine the output files and clean up===="
 # Recombine the output files and clean up
-ls $pathWorking/"$prefix".*.temp.ATCGmap.gz | xargs zcat > "$prefix".ATCGmap && pigz -f -p $cores "$prefix".ATCGmap &&
+"$prefix".*.temp.bam_dedup.ATCGmap.gz
+ls $pathWorking/"$prefix".*.temp.bam_dedup.ATCGmap.gz | xargs zcat > "$prefix".ATCGmap && pigz -f -p $cores "$prefix".ATCGmap &&
 
-ls $pathWorking/"$prefix".*.temp.CGmap.gz | xargs zcat > "$prefix".CGmap && pigz -f -p $cores "$prefix".CGmap &&
+ls $pathWorking/"$prefix".*.temp.bam_dedup.CGmap.gz | xargs zcat > "$prefix".CGmap && pigz -f -p $cores "$prefix".CGmap &&
 
 msg "==== Cleanup files ===="
 #rm $pathWorking/"$prefix".*.temp.ATCGmap.gz $pathWorking/"$prefix".*.temp.CGmap.gz $pathWorking/"$prefix".*.wig.gz $pathWorking/"$prefix"*.temp.bam $pathWorking/"$prefix".chromNames
