@@ -13,7 +13,7 @@ module add R
 Rscript ./run_dmrseq_dug.R \
 /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/dmr_manifest_test.csv \
 /d/home/hg19ips/hg19ips_samb/mcc_hg19ips/workflow/call_dmr/ \
-test_data
+primed_v_esc_e8
 
 
 
